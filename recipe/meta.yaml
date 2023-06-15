@@ -1,60 +1,55 @@
-{% set name = "hkl" %}
-{% set version = "5.0.0.2173" %}
-{% set sha256 = "5f3991d2af4ff01d6f6e29d0176af9bc1b54e6a8598046a050ad804fedd860f2" %}
+{% set name = "debussy" %}
+{% set version = "0.1.0" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://github.com/picca/{{ name }}/archive/v{{ version }}.tar.gz
-  sha256: {{ sha256 }}
+  url: https://github.com/mrakitin/DEBUSSY_v2.2-UNIX/archive/refs/tags/v{{ version }}.tar.gz
+  sha256: 6c8d4a22628c8bb6da923aa85f827f64b7704a4a96cfba483f3d157ccb9c8a53
   patches:
-    - no-docs.patch
+    - 0001-CI-run-the-test-after-building.patch
 
 build:
-  number: 5
-  skip: True  # [py<36 or win or osx]
+  number: 0
+  skip: true  # [py<38 or win or osx]
 
 requirements:
   build:
-    - {{ compiler('c') }}
-    - {{ compiler('cxx') }}
+    # - {{ compiler('c') }}
+    # - {{ compiler('cxx') }}
+    - {{ compiler('fortran') }}
     - autoconf
     - automake
     - libtool
     - m4
     - make
-    - pkg-config
+    # - pkg-config
   host:
-    - glib
-    - gobject-introspection
-    - gsl
-    - libcblas
-    - libiconv
-    - pcre
-    - pygobject
+    - libblas * *openblas
+    - liblapack
+    - cerf
+    - nlopt
     - python
   run:
     - python
-    - gsl
-    - numpy
-    - pygobject
+    - matplotlib
+    - wxpython
 
 test:
   commands:
-    - test -f ${PREFIX}/lib/libhkl.so
-    - test ! -f ${PREFIX}/lib/libhkl.a
+    - test -f ${PREFIX}/bin/Debussy
 
 about:
-  home: http://repo.or.cz/w/hkl.git
-  license: GPL-3.0-or-later
-  license_file: COPYING
-  summary: Diffractometer computation library
-  doc_url: https://people.debian.org/~picca/hkl/hkl.html
-  dev_url: http://repo.or.cz/w/hkl.git
+  home: https://github.com/DeByeUSerSYstem/DEBUSSY_v2.2-UNIX
+  license: GPL-3.0
+  license_file: LICENSE
+  summary: |
+    Debussy is a package of programs implementing a fast approach to the Debye
+    Scattering Equation (DSE) analysis for total scattering data from
+    nanocrystalline and/or defective materials.
 
 extra:
   recipe-maintainers:
     - mrakitin
-    - prjemian
