@@ -27,9 +27,9 @@ requirements:
     - make
     # - pkg-config
   host:
-    - libblas * *openblas
-    - liblapack
     - cerf
+    - liblapack
+    - libopenblas
     - nlopt
     - python
   run:
