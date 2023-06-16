@@ -1,0 +1,81 @@
+From 46b9601255c6f46ea2e7b93838c2dcbfa0ae4246 Mon Sep 17 00:00:00 2001
+From: Max Rakitin <mrakitin@bnl.gov>
+Date: Thu, 15 Jun 2023 20:09:19 -0400
+Subject: [PATCH] PATCH: remove interactivity
+
+---
+ UNIX/DEBUSSY_v2.2/install_debussy_v2.2 | 40 +++++++++++++-------------
+ 1 file changed, 20 insertions(+), 20 deletions(-)
+
+diff --git a/UNIX/DEBUSSY_v2.2/install_debussy_v2.2 b/UNIX/DEBUSSY_v2.2/install_debussy_v2.2
+index 4a37855..9438e75 100755
+--- a/UNIX/DEBUSSY_v2.2/install_debussy_v2.2
++++ b/UNIX/DEBUSSY_v2.2/install_debussy_v2.2
+@@ -113,18 +113,18 @@ if [ "$aw1" == "Y" ] || [ "$aw1" == "y" ] && [ "$platform" == "linux-gnu" ] ; th
+         echo 'Downloading lapack and blas libraries from system repositories ... '
+         echo ' '
+         echo 'LAPACK'
+-        sudo apt-get install liblapack3gf
+-        sudo apt-get install libatlas3-base
+-        sudo apt-get install liblapacke
+-        sudo apt-get install liblapack3
+-        sudo apt-get install liblapack-dev
++        # sudo apt-get install liblapack3gf
++        # sudo apt-get install libatlas3-base
++        # sudo apt-get install liblapacke
++        # sudo apt-get install liblapack3
++        # sudo apt-get install liblapack-dev
+         echo ' '
+         echo 'LIBBLAS'
+-        sudo apt-get install libblas3
+-        sudo apt-get install libblas3gf
+-        sudo apt-get install libopenblas-dev
+-        sudo apt-get install libgsl0-dbg
+-        sudo apt-get install libtool
++        # sudo apt-get install libblas3
++        # sudo apt-get install libblas3gf
++        # sudo apt-get install libopenblas-dev
++        # sudo apt-get install libgsl0-dbg
++        # sudo apt-get install libtool
+         echo ' '
+     fi
+ fi
+@@ -155,25 +155,25 @@ if [ "$aw1" == "Y" ] || [ "$aw1" == "y" ] ; then
+     echo 'LIBCERF'
+     cd $lcerfpath2
+     echo ' ... current folder is '$(pwd)
+-    ./configure
++    ./configure --prefix=$pgmpath/lib
+     make
+-    sudo make install
++    make install
+     echo ' '
+     echo 'NLOPT'
+     cd $nlopath2 
+     echo ' ... current folder is '$(pwd)
+-    ./configure --enable-shared
++    ./configure --enable-shared --prefix=$pgmpath/lib
+     make
+-    sudo make install
++    make install
+     echo ' '
+   if [ "$platform" == "linux-gnu" ] ; then
+     echo 'Creating symbolic links for libcerf & nlopt ... '
+-    sudo ln -s /usr/local/lib/libcerf.so.1 /usr/lib/libcerf.so.1
+-    sudo ln -s /usr/local/lib/libcerf.so.1 /usr/lib/libcerf.so.1.0.1
+-    sudo ln -s /usr/local/lib/libcerf.so.1 /usr/lib/libcerf.so
+-    sudo ln -s /usr/local/lib/libcerf.so.1 /usr/lib/libcerf.la
+-    sudo ln -s /usr/local/lib/libcerf.so.1 /usr/lib/libcerf.so.1
+-    sudo ln -s /usr/local/lib/libnlopt.so.0 /usr/lib/libnlopt.so.0
++    # sudo ln -s /usr/local/lib/libcerf.so.1 /usr/lib/libcerf.so.1
++    # sudo ln -s /usr/local/lib/libcerf.so.1 /usr/lib/libcerf.so.1.0.1
++    # sudo ln -s /usr/local/lib/libcerf.so.1 /usr/lib/libcerf.so
++    # sudo ln -s /usr/local/lib/libcerf.so.1 /usr/lib/libcerf.la
++    # sudo ln -s /usr/local/lib/libcerf.so.1 /usr/lib/libcerf.so.1
++    # sudo ln -s /usr/local/lib/libnlopt.so.0 /usr/lib/libnlopt.so.0
+   fi
+ fi
+ 
+-- 
+2.39.3
+

@@ -9,7 +9,7 @@ source:
   url: https://github.com/mrakitin/DEBUSSY_v2.2-UNIX/archive/refs/tags/v{{ version }}.tar.gz
   sha256: 6c8d4a22628c8bb6da923aa85f827f64b7704a4a96cfba483f3d157ccb9c8a53
   patches:
-    - 0001-CI-run-the-test-after-building.patch
+    - 0001-PATCH-remove-interactivity.patch
 
 build:
   number: 0
