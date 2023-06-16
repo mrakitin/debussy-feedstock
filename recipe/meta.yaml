@@ -38,11 +38,15 @@ requirements:
     - wxpython
 
 test:
+  requires:
+    - git
   commands:
     - test -f ${PREFIX}/bin/Debussy
     - ldd ${PREFIX}/bin/Debussy
-    - ls -la ${SRC_DIR}
-    - cd ${SRC_DIR}/UNIX/RUN_TEST_UNIX && echo -e "\n" | ./drun
+    - |
+      git clone https://github.com/mrakitin/DEBUSSY_v2.2-UNIX /tmp/debussy-repo && \
+      cd /tmp/debussy-repo/UNIX/RUN_TEST_UNIX && \
+      echo -e "\n" | ./drun
 
 about:
   home: https://github.com/DeByeUSerSYstem/DEBUSSY_v2.2-UNIX
