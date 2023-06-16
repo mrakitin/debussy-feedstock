@@ -41,6 +41,7 @@ test:
   commands:
     - test -f ${PREFIX}/bin/Debussy
     - ldd ${PREFIX}/bin/Debussy
+    - ls -la ${SRC_DIR}
     - cd ${SRC_DIR}/UNIX/RUN_TEST_UNIX && echo -e "\n" | ./drun
 
 about:
