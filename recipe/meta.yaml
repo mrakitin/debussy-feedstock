@@ -10,6 +10,7 @@ source:
   sha256: 6c8d4a22628c8bb6da923aa85f827f64b7704a4a96cfba483f3d157ccb9c8a53
   patches:
     - 0001-PATCH-remove-interactivity.patch
+    - 0002-FIX-use-FC-for-fortran-compiler-var.patch
 
 build:
   number: 0
