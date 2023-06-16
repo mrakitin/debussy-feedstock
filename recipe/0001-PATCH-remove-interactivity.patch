@@ -45,7 +45,7 @@ index 4a37855..9438e75 100755
      cd $lcerfpath2
      echo ' ... current folder is '$(pwd)
 -    ./configure
-+    ./configure --prefix=$pgmpath/lib
++    ./configure --prefix=$pgmpath
      make
 -    sudo make install
 +    make install
@@ -54,7 +54,7 @@ index 4a37855..9438e75 100755
      cd $nlopath2 
      echo ' ... current folder is '$(pwd)
 -    ./configure --enable-shared
-+    ./configure --enable-shared --prefix=$pgmpath/lib
++    ./configure --enable-shared --prefix=$pgmpath
      make
 -    sudo make install
 +    make install
