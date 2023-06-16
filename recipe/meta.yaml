@@ -11,6 +11,7 @@ source:
   patches:
     - 0001-PATCH-remove-interactivity.patch
     - 0002-FIX-use-FC-for-fortran-compiler-var.patch
+    - 0003-FIX-remove-FC-gfortran-to-allow-external-compilers.patch
 
 build:
   number: 0
