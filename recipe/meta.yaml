@@ -46,7 +46,7 @@ test:
     - |
       git clone https://github.com/mrakitin/DEBUSSY_v2.2-UNIX /tmp/debussy-repo && \
       cd /tmp/debussy-repo/UNIX/RUN_TEST_UNIX && \
-      echo -e "\n" | ./drun
+      echo -e "\n" | bash ./drun
 
 about:
   home: https://github.com/DeByeUSerSYstem/DEBUSSY_v2.2-UNIX
