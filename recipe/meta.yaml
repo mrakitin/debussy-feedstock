@@ -11,7 +11,7 @@ source:
   patches:
     - 0001-PATCH-remove-interactivity.patch
     - 0002-FIX-use-FC-for-fortran-compiler-var.patch
-    - 0003-FIX-remove-FC-gfortran-to-allow-external-compilers.patch
+    - 0003-FIX-make-FC-optional-in-makefiles.patch
 
 build:
   number: 0
@@ -40,6 +40,8 @@ requirements:
 test:
   commands:
     - test -f ${PREFIX}/bin/Debussy
+    - ldd ${PREFIX}/bin/Debussy
+    - cd ${SRC_DIR}/UNIX/RUN_TEST_UNIX && echo -e "\n" | ./drun
 
 about:
   home: https://github.com/DeByeUSerSYstem/DEBUSSY_v2.2-UNIX

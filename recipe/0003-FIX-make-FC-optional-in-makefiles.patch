@@ -1,0 +1,55 @@
+From 2b4003edfef912524c902059f58cf5d668be0317 Mon Sep 17 00:00:00 2001
+From: Max Rakitin <mrakitin@bnl.gov>
+Date: Fri, 16 Jun 2023 05:20:00 +0000
+Subject: [PATCH] FIX: make FC optional in makefiles
+
+---
+ UNIX/DEBUSSY_v2.2/MAKING_gfortran/Make_CLAUDE.txt   | 2 +-
+ UNIX/DEBUSSY_v2.2/MAKING_gfortran/Make_DEBUSSY.txt  | 2 +-
+ UNIX/DEBUSSY_v2.2/extlib/LAPACK95-lite/src/makefile | 4 ++--
+ 3 files changed, 4 insertions(+), 4 deletions(-)
+
+diff --git a/UNIX/DEBUSSY_v2.2/MAKING_gfortran/Make_CLAUDE.txt b/UNIX/DEBUSSY_v2.2/MAKING_gfortran/Make_CLAUDE.txt
+index 766e348..150de84 100755
+--- a/UNIX/DEBUSSY_v2.2/MAKING_gfortran/Make_CLAUDE.txt
++++ b/UNIX/DEBUSSY_v2.2/MAKING_gfortran/Make_CLAUDE.txt
+@@ -27,7 +27,7 @@ INCUSE = -I$(INCLDIREXT1)
+ #
+ #
+ IOPT =  -I$(MODDIR) $(INCUSE)
+-FC = gfortran
++FC ?= gfortran
+ # two optional compilation modes
+ FSAF = -fbounds-check -fbacktrace -finit-local-zero -fexternal-blas -lblas $(IOPT)
+ FFAS = -O3 -finit-local-zero -fexternal-blas -lblas $(IOPT)
+diff --git a/UNIX/DEBUSSY_v2.2/MAKING_gfortran/Make_DEBUSSY.txt b/UNIX/DEBUSSY_v2.2/MAKING_gfortran/Make_DEBUSSY.txt
+index f348b6a..ac68f2d 100755
+--- a/UNIX/DEBUSSY_v2.2/MAKING_gfortran/Make_DEBUSSY.txt
++++ b/UNIX/DEBUSSY_v2.2/MAKING_gfortran/Make_DEBUSSY.txt
+@@ -31,7 +31,7 @@ INCUSE = -I$(INCLDIREXT1)
+ #
+ #
+ IOPT =  -I$(MODDIR) $(INCUSE)
+-FC = gfortran
++FC ?= gfortran
+ # two optional compilation modes
+ FSAF = -fbounds-check -fbacktrace -finit-local-zero -fexternal-blas -lblas $(IOPT)
+ FFAS = -O3 -floop-nest-optimize -finit-local-zero -fexternal-blas -lblas $(IOPT)
+diff --git a/UNIX/DEBUSSY_v2.2/extlib/LAPACK95-lite/src/makefile b/UNIX/DEBUSSY_v2.2/extlib/LAPACK95-lite/src/makefile
+index 8ca3774..9e8438d 100755
+--- a/UNIX/DEBUSSY_v2.2/extlib/LAPACK95-lite/src/makefile
++++ b/UNIX/DEBUSSY_v2.2/extlib/LAPACK95-lite/src/makefile
+@@ -8,8 +8,8 @@
+ #     UNI-C, Denmark; Univ. of Tennessee, USA; NAG Ltd., UK
+ #     August 5, 2000
+ #
+-FC   = gfortran -ffree-form
+-FC1      = gfortran -ffixed-form
++FC   ?= gfortran -ffree-form
++FC1      ?= gfortran -ffixed-form
+ # -dcfuns  Enable recognition of non-standard double
+ #          precision  complex intrinsic functions
+ # -dusty   Allows the compilation and execution of "legacy"
+-- 
+2.30.2
+
