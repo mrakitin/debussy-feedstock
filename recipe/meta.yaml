@@ -24,18 +24,17 @@ requirements:
     - {{ compiler('fortran') }}
     - autoconf
     - automake
+    - cerf
     - libtool
     - make
-    # - pkg-config
-  host:
-    - cerf
-    - liblapack
-    - libopenblas
     - nlopt
+  host:
     - python
   run:
     - python
+    - cerf
     - matplotlib
+    - nlopt
     - wxpython
 
 test:
