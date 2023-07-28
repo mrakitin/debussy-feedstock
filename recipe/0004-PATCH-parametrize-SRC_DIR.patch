@@ -1,0 +1,25 @@
+From bd77782236374449f2508e88b1cc9270eace3fdb Mon Sep 17 00:00:00 2001
+From: Max Rakitin <mrakitin@bnl.gov>
+Date: Fri, 28 Jul 2023 10:43:17 -0400
+Subject: [PATCH] PATCH: parametrize SRC_DIR
+
+---
+ UNIX/DEBUSSY_v2.2/MAKING_gfortran/doall_Debussy.sh | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/UNIX/DEBUSSY_v2.2/MAKING_gfortran/doall_Debussy.sh b/UNIX/DEBUSSY_v2.2/MAKING_gfortran/doall_Debussy.sh
+index 4e782b5..1c6af03 100755
+--- a/UNIX/DEBUSSY_v2.2/MAKING_gfortran/doall_Debussy.sh
++++ b/UNIX/DEBUSSY_v2.2/MAKING_gfortran/doall_Debussy.sh
+@@ -1,6 +1,6 @@
+ ### program path
+-debpath='/Users/federica/DEBUSSY/DEBUSSY_v2.2/'
+-pgmpath='/Users/federica/DEBUSSY/DEBUSSY_v2.2/'
++debpath="$SRC_DIR/UNIX/DEBUSSY_v2.2/"
++pgmpath="$SRC_DIR/UNIX/DEBUSSY_v2.2/"
+ ###
+ ### paths
+ binpath=$pgmpath'bin'
+-- 
+2.38.1
+

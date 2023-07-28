@@ -12,6 +12,7 @@ source:
     - 0001-PATCH-remove-interactivity.patch
     - 0002-FIX-use-FC-for-fortran-compiler-var.patch
     - 0003-FIX-make-FC-optional-in-makefiles.patch
+    - 0004-PATCH-parametrize-SRC_DIR.patch
 
 build:
   number: 0
