@@ -45,6 +45,8 @@ test:
     - test -f ${PREFIX}/bin/Debussy
     - ldd ${PREFIX}/bin/Debussy
     - |
+      ls -al $SRC_DIR
+      cat $SRC_DIR/UNIX/DEBUSSY_v2.2/MAKING_gfortran/EPDL97.inc
       git clone https://github.com/mrakitin/DEBUSSY_v2.2-UNIX /tmp/debussy-repo && \
       cd /tmp/debussy-repo/UNIX/RUN_TEST_UNIX && \
       echo -e "\n" | bash ./drun
